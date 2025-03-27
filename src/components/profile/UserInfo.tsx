@@ -1,5 +1,5 @@
 import Image from "next/image";
-import StatItem from "@/components/StatItem";
+import StatItem from "@/components/profile/StatItem";
 import { getRandomAnimal } from "@/helpers/getRandomAnimal";
 import { IUser } from "@/interfaces/IUser";
 import {
@@ -21,7 +21,6 @@ export const UserInfo = ({ spriteUrl, user }: { spriteUrl: string, user: IUser }
     { icon: <ThumbsUp />, label: "Wins", value: user?.winsLadder ?? 0 },
     { icon: <ThumbsDown />, label: "Losses", value: user?.lossesLadder ?? 0 },
   ];
-
 
   return (
     <>

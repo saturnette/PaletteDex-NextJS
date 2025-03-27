@@ -1,7 +1,7 @@
 import { getUserData } from "@/services/getUserData";
 import { getPokemonSprite } from "@/services/getPokemonSprite";
 import { UserInfo } from "@/components/profile/UserInfo";
-import { Pokedex } from "@/components/Pokedex";
+import { Pokedex } from "@/components/pokedex/Pokedex";
 
 const profilePage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
