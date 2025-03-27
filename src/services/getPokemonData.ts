@@ -1,6 +1,13 @@
 import { IPokemon } from "@/interfaces/IPokemon";
 
+const pokemonCache: { [key: string]: IPokemon[] } = {};
+
 export async function getPokemonData(limit = 151, retryAttempts = 3) {
+  if (pokemonCache[limit]) {
+    console.log("Returning cached Pokémon data");
+    return pokemonCache[limit];
+  }
+
   try {
     const response = await fetch(
       `https://pokeapi.co/api/v2/pokemon?limit=${limit}`
@@ -30,7 +37,9 @@ export async function getPokemonData(limit = 151, retryAttempts = 3) {
         (result) => (result as PromiseFulfilledResult<IPokemon>).value
       );
 
-    console.log(successfulPokemon);
+    pokemonCache[limit] = successfulPokemon;
+
+    console.log("Fetched and cached Pokémon data");
     return successfulPokemon;
   } catch (error) {
     console.error("Error fetching Pokémon list:", error);
@@ -72,5 +81,3 @@ async function fetchPokemonDetails(
     throw error;
   }
 }
-
-
