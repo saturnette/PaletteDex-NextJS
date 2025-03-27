@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getPokemonData } from "@/lib/getPokemonData";
+import { getPokemonData } from "@/services/getPokemonData";
 import { PokemonCard } from "./pokedex/PokemonCard";
 import { IPokemon } from "@/interfaces/IPokemon";
 import Skeleton from "./Skeleton";

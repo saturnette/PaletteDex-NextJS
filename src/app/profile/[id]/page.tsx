@@ -1,5 +1,5 @@
-import { getUserData } from "@/lib/getUserData";
-import { getPokemonSprite } from "@/lib/getPokemonSprite";
+import { getUserData } from "@/services/getUserData";
+import { getPokemonSprite } from "@/services/getPokemonSprite";
 import { UserInfo } from "@/components/profile/UserInfo";
 import { Pokedex } from "@/components/Pokedex";
 
