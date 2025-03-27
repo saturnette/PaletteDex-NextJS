@@ -1,7 +1,7 @@
 import { BotMessageSquare, Menu } from "lucide-react";
 import Link from "next/link";
 
-export default function Navbar() {
+export const Navbar = () => {
   return (
     <div className="bg-primary z-50 sticky top-0">
       <div className="container mx-auto flex items-center justify-between p-4">

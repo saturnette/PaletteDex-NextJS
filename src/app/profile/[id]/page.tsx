@@ -8,7 +8,7 @@ const profilePage = async ({ params }: { params: Promise<{ id: string }> }) => {
 
   const user = await getUserData(id);
   const spriteUrl = await getPokemonSprite(
-    user?.companionPokemon?.number ?? user?.pokemonCollection[0]?.number ?? 1
+    user.companionPokemon?.number ?? user.pokemonCollection[0]?.number ?? 1
   );
 
   const pokemonCollection = user.pokemonCollection.map(pokemon => pokemon.number);

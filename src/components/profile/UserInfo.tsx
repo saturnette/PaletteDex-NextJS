@@ -11,15 +11,28 @@ import {
   ThumbsDown,
 } from "lucide-react";
 
-export const UserInfo = ({ spriteUrl, user }: { spriteUrl: string, user: IUser }) => {
-
+export const UserInfo = ({
+  spriteUrl,
+  user,
+}: {
+  spriteUrl: string;
+  user: IUser;
+}) => {
   const stats = [
-    { icon: <Trophy />, label: "ELO", value: user?.elo ?? 0 },
-    { icon: <Coins />, label: "PokéCoins", value: user?.coins ?? 0 },
-    { icon: <Cat />, label: "PokéDex", value: `${user?.pokemonCollection.length ?? 0} / 151` },
-    { icon: <Gamepad2 />, label: "Games", value: (user?.winsLadder ?? 0) + (user?.lossesLadder ?? 0) },
-    { icon: <ThumbsUp />, label: "Wins", value: user?.winsLadder ?? 0 },
-    { icon: <ThumbsDown />, label: "Losses", value: user?.lossesLadder ?? 0 },
+    { icon: <Trophy />, label: "ELO", value: user.elo ?? 0 },
+    { icon: <Coins />, label: "PokéCoins", value: user.coins ?? 0 },
+    {
+      icon: <Cat />,
+      label: "PokéDex",
+      value: `${user.pokemonCollection.length ?? 0} / 151`,
+    },
+    {
+      icon: <Gamepad2 />,
+      label: "Games",
+      value: (user.winsLadder ?? 0) + (user.lossesLadder ?? 0),
+    },
+    { icon: <ThumbsUp />, label: "Wins", value: user.winsLadder ?? 0 },
+    { icon: <ThumbsDown />, label: "Losses", value: user.lossesLadder ?? 0 },
   ];
 
   return (
@@ -39,13 +52,18 @@ export const UserInfo = ({ spriteUrl, user }: { spriteUrl: string, user: IUser }
             </div>
             <div className="grid grid-cols-3 gap-6 text-center my-4">
               {stats.map((stat, index) => (
-                <StatItem key={index} icon={stat.icon} label={stat.label} value={stat.value} />
+                <StatItem
+                  key={index}
+                  icon={stat.icon}
+                  label={stat.label}
+                  value={stat.value}
+                />
               ))}
             </div>
           </div>
         </div>
       </div>
-      <div className="border-t-2 border-primary border-dashed p-4 text-center text-3xl font-black text-white container rounded-b-lg bg-neutral-800 mx-auto">
+      <div className="border-t-2 border-primary border-dashed py-8 pb-4 text-center text-4xl font-black text-white container bg-neutral-800 mx-auto">
         Pokédex
       </div>
     </>
