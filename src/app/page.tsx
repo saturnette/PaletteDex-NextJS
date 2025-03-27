@@ -16,7 +16,6 @@ async function getUserNicks() {
 
 export default async function Home() {
   const users = await getUserNicks();
-  console.log(users);
   return (
     <div>
       <h1>Usuarios Showdown</h1>
@@ -24,7 +23,7 @@ export default async function Home() {
         <ul>
           {users.map((user) => (
             <li key={user.id}>
-              <Link href={`/${user.id}`}>
+              <Link href={`/profile/${user.id}`}>
                 {user.showdownNick}
               </Link>
             </li>

@@ -121,3 +121,156 @@
   }
 }
 
+
+/* Normal Type */
+.bg-normal {
+  background-image:
+    radial-gradient(circle, rgba(168, 167, 122, 0.8) 20%, transparent 20%);
+  background-size: 40px 40px;
+}
+
+/* Fire Type */
+.bg-fire {
+  background-image:
+    linear-gradient(45deg, rgba(255, 69, 0, 0.8) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255, 140, 0, 0.8) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255, 69, 0, 0.8) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255, 140, 0, 0.8) 75%);
+  background-size: 40px 40px;
+  background-position: 0 0, 0 0px, 20px -10px, -10px 0px;
+}
+
+/* Water Type */
+.bg-water {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(184, 223, 255, 0.8) 20%, transparent 20%),
+    radial-gradient(circle at 80% 80%, rgba(99, 144, 240, 0.8) 20%, transparent 20%);
+  background-size: 40px 40px;
+}
+
+/* Electric Type */
+.bg-electric {
+  background-image:
+    linear-gradient(135deg, rgba(255, 230, 128, 0.8) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(247, 208, 44, 0.8) 25%, transparent 25%);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* Grass Type */
+.bg-grass {
+  background-image:
+    linear-gradient(45deg, rgba(122, 199, 76, 0.8) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(122, 199, 76, 0.8) 25%, transparent 25%);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* Ice Type */
+.bg-ice {
+  background-image:
+    radial-gradient(circle, rgba(150, 217, 214, 0.8) 20%, transparent 20%);
+  background-size: 40px 40px;
+}
+
+/* Fighting Type */
+.bg-fighting {
+  background-image:
+    linear-gradient(45deg, rgba(255, 247, 0, 0.342) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(194, 46, 40, 0.8) 25%, transparent 25%);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* Poison Type */
+.bg-poison {
+  background-image:
+    radial-gradient(circle, rgba(136, 224, 64, 0.8) 20%, transparent 20%);
+  background-size: 40px 40px;
+}
+
+/* Ground Type */
+.bg-ground {
+  background-image:
+    linear-gradient(45deg, rgba(226, 191, 101, 0.8) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(226, 191, 101, 0.8) 25%, transparent 25%);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* Flying Type */
+.bg-flying {
+  background-image:
+    linear-gradient(45deg, rgba(169, 143, 243, 0.8) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(169, 143, 243, 0.8) 25%, transparent 25%);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* Psychic Type */
+.bg-psychic {
+  background-image:
+    radial-gradient(circle, rgba(231, 200, 209, 0.8) 20%, transparent 20%),
+    radial-gradient(circle, rgba(249, 85, 135, 0.8) 20%, transparent 20%);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* Bug Type */
+.bg-bug {
+  background-image:
+    linear-gradient(45deg, rgba(175, 122, 171, 0.8) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(166, 185, 26, 0.8) 25%, transparent 25%);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* Rock Type */
+.bg-rock {
+  background-image:
+    linear-gradient(45deg, rgba(182, 161, 54, 0.8) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(182, 161, 54, 0.8) 25%, transparent 25%);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* Ghost Type */
+.bg-ghost {
+  background-image:
+    radial-gradient(circle, rgba(255, 80, 80, 0.774) 20%, transparent 20%);
+  background-size: 40px 40px;
+}
+
+/* Dragon Type */
+.bg-dragon {
+  background-image:
+    linear-gradient(45deg, rgba(111, 53, 252, 0.8) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(111, 53, 252, 0.8) 25%, transparent 25%);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* Dark Type */
+.bg-dark {
+  background-image:
+    linear-gradient(45deg, rgba(112, 87, 70, 0.8) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(112, 87, 70, 0.8) 25%, transparent 25%);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* Steel Type */
+.bg-steel {
+  background-image:
+    linear-gradient(45deg, rgba(183, 183, 206, 0.8) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(183, 183, 206, 0.8) 25%, transparent 25%);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* Fairy Type */
+.bg-fairy {
+  background-image:
+    radial-gradient(circle, rgba(214, 133, 173, 0.8) 20%, transparent 20%);
+  background-size: 40px 40px;
+}
