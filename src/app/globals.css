@@ -274,3 +274,19 @@
     radial-gradient(circle, rgba(214, 133, 173, 0.8) 20%, transparent 20%);
   background-size: 40px 40px;
 }
+
+.bg-red {
+  background-color: #e92480; 
+  background-image: 
+      linear-gradient(120deg, rgba(255, 255, 255, 0.281) 25%, transparent 25%),
+      linear-gradient(-120deg, rgba(255, 255, 255, 0.281) 25%, transparent 25%);
+  background-size: 40px 40px;
+}
+
+.bg-blue {
+  background-color: #7e00f3; 
+  background-image: 
+      linear-gradient(-120deg, rgba(255, 255, 255, 0.281) 25%, transparent 25%),
+      linear-gradient(120deg, rgba(255, 255, 255, 0.281) 25%, transparent 25%);
+  background-size: 40px 40px;
+}

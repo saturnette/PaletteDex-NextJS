@@ -11,11 +11,11 @@ const profilePage = async ({ params }: { params: Promise<{ id: string }> }) => {
     user?.companionPokemon?.number ?? user?.pokemonCollection[0]?.number ?? 1
   );
 
-  const hola = user.pokemonCollection.map(pokemon => pokemon.number);
+  const pokemonCollection = user.pokemonCollection.map(pokemon => pokemon.number);
   return (
     <div className="bg-primary pb-10">
       <UserInfo spriteUrl={spriteUrl} user={user} />
-      <Pokedex userPokemonCollection={hola}/>
+      <Pokedex userPokemonCollection={pokemonCollection}/>
     </div>
   );
 };

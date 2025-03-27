@@ -22,7 +22,6 @@ export const UserInfo = ({ spriteUrl, user }: { spriteUrl: string, user: IUser }
     { icon: <ThumbsDown />, label: "Losses", value: user?.lossesLadder ?? 0 },
   ];
 
-  const favoriteColorClass = user?.favoriteColor === "blue" ? "bg-8F87F1" : user?.favoriteColor === "red" ? "bg-[#f51e78]" : "bg-gray-700";
 
   return (
     <>
@@ -33,7 +32,7 @@ export const UserInfo = ({ spriteUrl, user }: { spriteUrl: string, user: IUser }
             alt="Pokemon Sprite"
             width={242}
             height={264}
-            className={`p-2 rounded-lg mx-auto aspect-square ${favoriteColorClass}`}
+            className="p-2 rounded-lg mx-auto aspect-square bg-red"
           />
           <div className="w-full text-white my-4 md:my-0">
             <div className="flex items-center justify-center text-3xl bg-primary p-2 rounded-lg">
