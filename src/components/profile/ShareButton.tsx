@@ -8,6 +8,13 @@ export const ShareButton = ({ userId }: { userId: string }) => {
   const handleCopyOrShare = () => {
     const profileUrl = `${window.location.origin}/profile/${userId}`;
 
+    // Evento de Google Analytics
+    gtag('event', 'share_button_click', {
+      'event_category': 'User Interaction',
+      'event_label': 'Profile Share/Copy',
+      'value': 1
+    });
+
     if (navigator.share) {
       navigator
         .share({
@@ -16,6 +23,12 @@ export const ShareButton = ({ userId }: { userId: string }) => {
           url: profileUrl,
         })
         .then(() => {
+          // Evento adicional para compartir exitoso
+          gtag('event', 'share_success', {
+            'event_category': 'User Interaction',
+            'event_label': 'Native Share',
+          });
+
           toast.success("¡Perfil compartido!", {
             description: "El enlace se compartió correctamente.",
           });
@@ -30,6 +43,12 @@ export const ShareButton = ({ userId }: { userId: string }) => {
       navigator.clipboard
         .writeText(profileUrl)
         .then(() => {
+          // Evento adicional para copia exitosa
+          gtag('event', 'share_success', {
+            'event_category': 'User Interaction',
+            'event_label': 'Clipboard Copy',
+          });
+
           toast.success("¡URL copiada!", {
             description: "El enlace del perfil se copió al portapapeles.",
           });
@@ -52,9 +71,15 @@ export const ShareButton = ({ userId }: { userId: string }) => {
     textArea.style.left = "-9999px";
     document.body.appendChild(textArea);
     textArea.select();
-
     try {
       document.execCommand("copy");
+
+      // Evento para método de copia alternativo
+      gtag('event', 'share_success', {
+        'event_category': 'User Interaction',
+        'event_label': 'Fallback Copy Method',
+      });
+
       toast.success("¡URL copiada!", {
         description: "El enlace del perfil se copió al portapapeles.",
       });
@@ -69,12 +94,12 @@ export const ShareButton = ({ userId }: { userId: string }) => {
 
   return (
     <div className="flex justify-center">
-    <Button
-      onClick={handleCopyOrShare}
-      className="cursor-pointer font-black text-base hover:bg-white hover:text-neutral-800 transition-colors duration-300 w-60"
-    >
-      <Share2 /> Copiar URL del perfil
-    </Button>
+      <Button
+        onClick={handleCopyOrShare}
+        className="cursor-pointer font-black text-base hover:bg-white hover:text-neutral-800 transition-colors duration-300 w-60"
+      >
+        <Share2 /> Copiar URL del perfil
+      </Button>
     </div>
   );
 };
