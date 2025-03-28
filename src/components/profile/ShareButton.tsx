@@ -3,7 +3,7 @@
 import { Share2 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "../ui/button";
-import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google"; // Importa sendGAEvent
+import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
 
 export const ShareButton = ({
   userId,
@@ -27,7 +27,7 @@ export const ShareButton = ({
     });
 
     // Enviar evento a Google Analytics
-    sendGAEvent("share_button_click", {
+    sendGAEvent("event", "share_button_click", {
       event_category: "User Interaction",
       event_label: "Profile Share/Copy",
       value: 1,
@@ -51,7 +51,7 @@ export const ShareButton = ({
             user_name: name,
           });
 
-          sendGAEvent("share_success", {
+          sendGAEvent("event", "share_success", {
             event_category: "User Interaction",
             event_label: "Native Share",
             user_name: name,
@@ -70,7 +70,6 @@ export const ShareButton = ({
       navigator.clipboard
         .writeText(profileUrl)
         .then(() => {
-
           // Evento adicional para copia exitosa
           sendGTMEvent({
             event: "share_success",
@@ -79,7 +78,7 @@ export const ShareButton = ({
             user_name: name,
           });
 
-          sendGAEvent("share_success", {
+          sendGAEvent("event", "share_success", {
             event_category: "User Interaction",
             event_label: "Clipboard Copy",
             user_name: name,
@@ -117,7 +116,7 @@ export const ShareButton = ({
         user_name: name,
       });
 
-      sendGAEvent("share_success", {
+      sendGAEvent("event", "share_success", {
         event_category: "User Interaction",
         event_label: "Fallback Copy Method",
         user_name: name,
