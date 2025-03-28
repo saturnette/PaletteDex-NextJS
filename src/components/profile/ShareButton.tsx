@@ -3,16 +3,36 @@
 import { Share2 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "../ui/button";
+import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google"; // Importa sendGAEvent
 
-export const ShareButton = ({ userId }: { userId: string }) => {
+export const ShareButton = ({
+  userId,
+  userName,
+}: {
+  userId: string;
+  userName?: string;
+}) => {
   const handleCopyOrShare = () => {
     const profileUrl = `${window.location.origin}/profile/${userId}`;
+    const name = userName || "anonimo";
 
-    // Evento de Google Analytics
-    gtag('event', 'share_button_click', {
-      'event_category': 'User Interaction',
-      'event_label': 'Profile Share/Copy',
-      'value': 1
+    // Enviar evento a Google Tag Manager
+    sendGTMEvent({
+      event: "share_button_click",
+      event_category: "User Interaction",
+      event_label: "Profile Share/Copy",
+      value: 1,
+      user_id: userId,
+      user_name: name,
+    });
+
+    // Enviar evento a Google Analytics
+    sendGAEvent("share_button_click", {
+      event_category: "User Interaction",
+      event_label: "Profile Share/Copy",
+      value: 1,
+      user_id: userId,
+      user_name: name,
     });
 
     if (navigator.share) {
@@ -24,9 +44,17 @@ export const ShareButton = ({ userId }: { userId: string }) => {
         })
         .then(() => {
           // Evento adicional para compartir exitoso
-          gtag('event', 'share_success', {
-            'event_category': 'User Interaction',
-            'event_label': 'Native Share',
+          sendGTMEvent({
+            event: "share_success",
+            event_category: "User Interaction",
+            event_label: "Native Share",
+            user_name: name,
+          });
+
+          sendGAEvent("share_success", {
+            event_category: "User Interaction",
+            event_label: "Native Share",
+            user_name: name,
           });
 
           toast.success("¡Perfil compartido!", {
@@ -38,15 +66,23 @@ export const ShareButton = ({ userId }: { userId: string }) => {
             description: "No se pudo compartir el enlace.",
           });
         });
-    }
-    else if (navigator.clipboard && navigator.clipboard.writeText) {
+    } else if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard
         .writeText(profileUrl)
         .then(() => {
+
           // Evento adicional para copia exitosa
-          gtag('event', 'share_success', {
-            'event_category': 'User Interaction',
-            'event_label': 'Clipboard Copy',
+          sendGTMEvent({
+            event: "share_success",
+            event_category: "User Interaction",
+            event_label: "Clipboard Copy",
+            user_name: name,
+          });
+
+          sendGAEvent("share_success", {
+            event_category: "User Interaction",
+            event_label: "Clipboard Copy",
+            user_name: name,
           });
 
           toast.success("¡URL copiada!", {
@@ -58,13 +94,12 @@ export const ShareButton = ({ userId }: { userId: string }) => {
             description: "No se pudo copiar el enlace al portapapeles.",
           });
         });
-    }
-    else {
-      fallbackCopyTextToClipboard(profileUrl);
+    } else {
+      fallbackCopyTextToClipboard(profileUrl, name);
     }
   };
 
-  const fallbackCopyTextToClipboard = (text: string) => {
+  const fallbackCopyTextToClipboard = (text: string, name: string) => {
     const textArea = document.createElement("textarea");
     textArea.value = text;
     textArea.style.position = "fixed";
@@ -75,9 +110,17 @@ export const ShareButton = ({ userId }: { userId: string }) => {
       document.execCommand("copy");
 
       // Evento para método de copia alternativo
-      gtag('event', 'share_success', {
-        'event_category': 'User Interaction',
-        'event_label': 'Fallback Copy Method',
+      sendGTMEvent({
+        event: "share_success",
+        event_category: "User Interaction",
+        event_label: "Fallback Copy Method",
+        user_name: name,
+      });
+
+      sendGAEvent("share_success", {
+        event_category: "User Interaction",
+        event_label: "Fallback Copy Method",
+        user_name: name,
       });
 
       toast.success("¡URL copiada!", {

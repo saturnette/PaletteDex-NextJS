@@ -50,7 +50,7 @@ export const UserInfo = ({
               height={264}
               className="p-2 rounded-lg mx-auto aspect-square bg-red mb-2"
             />
-            <ShareButton userId={user._id} />
+            <ShareButton userId={user._id} userName={user.showdownNick} />
           </div>
           <div className="w-full text-white my-4 md:my-0">
             <div className="flex items-center justify-center text-3xl bg-primary p-2 rounded-lg">
