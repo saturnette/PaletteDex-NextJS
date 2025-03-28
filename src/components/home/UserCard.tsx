@@ -28,7 +28,7 @@ export default function UserCard({ user }: { user: IUser }) {
           alt="Pokemon Sprite"
           width={160}
           height={160}
-          className={`ml-2 md:ml-10 bg-${user.favoriteColor} rounded-full`}
+          className={`ml-2 md:ml-10 bg-${user.favoriteColor} rounded-full aspect-square`}
         />
       </div>
 
