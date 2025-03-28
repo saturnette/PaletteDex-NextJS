@@ -71,7 +71,7 @@ export const ShareButton = ({ userId }: { userId: string }) => {
     <div className="flex justify-center">
     <Button
       onClick={handleCopyOrShare}
-      className="cursor-pointer font-black text-base hover:bg-white hover:text-neutral-800 transition-colors duration-300"
+      className="cursor-pointer font-black text-base hover:bg-white hover:text-neutral-800 transition-colors duration-300 w-60"
     >
       <Share2 /> Copiar URL del perfil
     </Button>
