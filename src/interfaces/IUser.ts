@@ -1,4 +1,5 @@
 export interface IUser {
+  _id: string;
   winsLadder: number;
   lossesLadder: number;
   favoriteColor: string;
@@ -14,4 +15,7 @@ export interface IUser {
     count: number;
     _id: string ;
   }[];
+  _doc?: Omit<IUser, '_doc'>;
+  spriteUrl?: string;
+  position: number;
 }
