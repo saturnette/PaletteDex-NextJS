@@ -5,6 +5,9 @@ import { toast } from "sonner";
 import { Button } from "../ui/button";
 import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
 
+
+// ! testing sendGTMEvent and sendGAEvent
+
 export const ShareButton = ({
   userId,
   userName,
@@ -16,7 +19,7 @@ export const ShareButton = ({
     const profileUrl = `${window.location.origin}/profile/${userId}`;
     const name = userName || "anonimo";
 
-    // Enviar evento a Google Tag Manager
+    // ! event for share button click
     sendGTMEvent({
       event: "share_button_click",
       event_category: "User Interaction",
@@ -26,7 +29,6 @@ export const ShareButton = ({
       user_name: name,
     });
 
-    // Enviar evento a Google Analytics
     sendGAEvent("event", "share_button_click", {
       event_category: "User Interaction",
       event_label: "Profile Share/Copy",
@@ -43,7 +45,9 @@ export const ShareButton = ({
           url: profileUrl,
         })
         .then(() => {
-          // Evento adicional para compartir exitoso
+
+          // ! event for successful share
+
           sendGTMEvent({
             event: "share_success",
             event_category: "User Interaction",
@@ -70,7 +74,9 @@ export const ShareButton = ({
       navigator.clipboard
         .writeText(profileUrl)
         .then(() => {
-          // Evento adicional para copia exitosa
+
+          // ! event for successful copy
+
           sendGTMEvent({
             event: "share_success",
             event_category: "User Interaction",
@@ -108,7 +114,7 @@ export const ShareButton = ({
     try {
       document.execCommand("copy");
 
-      // Evento para método de copia alternativo
+      // ! event for successful copy
       sendGTMEvent({
         event: "share_success",
         event_category: "User Interaction",

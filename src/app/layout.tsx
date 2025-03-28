@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import { Navbar } from "@/components/global/Navbar";
 import { Footer } from "@/components/global/Footer";
-import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google"; // Importa los componentes
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 const roboto = Roboto({
