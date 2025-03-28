@@ -10,6 +10,8 @@ import {
   ThumbsUp,
   ThumbsDown,
 } from "lucide-react";
+import { Toaster } from "sonner";
+import { ShareButton } from "./ShareButton";
 
 export const UserInfo = ({
   spriteUrl,
@@ -37,15 +39,19 @@ export const UserInfo = ({
 
   return (
     <>
+      <Toaster />
       <div className="bg-neutral-800">
-        <div className="container p-4 mx-auto md:flex text-black font-black gap-4 ">
-          <Image
-            src={spriteUrl}
-            alt="Pokemon Sprite"
-            width={242}
-            height={264}
-            className="p-2 rounded-lg mx-auto aspect-square bg-red"
-          />
+        <div className="container p-4 mx-auto md:flex text-black font-black gap-4">
+          <div>
+            <Image
+              src={spriteUrl}
+              alt="Pokemon Sprite"
+              width={242}
+              height={264}
+              className="p-2 rounded-lg mx-auto aspect-square bg-red mb-2"
+            />
+            <ShareButton userId={user._id} />
+          </div>
           <div className="w-full text-white my-4 md:my-0">
             <div className="flex items-center justify-center text-3xl bg-primary p-2 rounded-lg">
               <p>{user?.showdownNick || `${getRandomAnimal()} Anónimo`}</p>

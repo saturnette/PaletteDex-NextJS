@@ -12,7 +12,7 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: "Palette Dex",
-  description: "A pokemon color palette generator",
+  description: "A Pokedex for all your favorite Pokemon palettes.",
 };
 
 export default function RootLayout({
