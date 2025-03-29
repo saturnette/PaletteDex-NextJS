@@ -48,7 +48,7 @@ export const UserInfo = ({
               alt="Pokemon Sprite"
               width={242}
               height={264}
-              className={`p-2 rounded-lg mx-auto aspect-square bg-${user.favoriteColor} mb-20`}
+              className={`p-2 rounded-lg mx-auto aspect-square bg-${user.favoriteColor} mb-2`}
             />
             <ShareButton userId={user._id} userName={user.showdownNick} />
           </div>
